@@ -204,3 +204,67 @@ All Information with reference to [Website](https://overthewire.org/wargames/ban
 6. Type ```exit```
 
 ![Image](/11-12%201.png)
+
+---
+## Level 12 to 13
+*The password for the next level is stored in the file data.txt, which is a hexdump of a file that has been repeatedly compressed. For this level it may be useful to create a directory under /tmp in which you can work using mkdir.*
+
+**Notes:**  Creating temporary directory new1 using /tmp; xxd -r - used to generate as well as reverse a hexdump; gzip - used to decompress gzip file; bzip2 - used to decompress bzip2 file type; tar -xvf - used to extract POSIX tar archive (GNU) file; goal is to keep extracting files with gzip, bzip2 & tar extensions until ASCII text type file is found
+
+1. Type command ```ssh bandit12@bandit.labs.overthewire.org -p 2220```
+2. Password: ```JVNBBFSmZwKKOP0XbFXOoW8chDz5yVRv```
+3. Chane directory to /tmp ```cd /tmp``` & make new directory ```mkdir new1```
+4. Copy data.txt file to new directory using ```cp data.txt /tmp/new1```
+5. Read data.txt file and reverse hexdump using ```cat data.txt | xxd -r```
+6. Store read data in file called hexdump by redirection ```cat data.txt | xxd -r > hexdump```
+7. Check file type of hexdump with ```file hexdump``` & move file to new file with appropriate extension according to file type ```mv hexdump hexdump.gz```
+8. To extract file, use ```gzip -d hexdump.gz```
+9. Check file type of hexdump with ```file hexdump``` & move file to new file with appropriate extension according to file type ```mv hexdump hexdump.bz2```
+10. To extract file, use ```bzip2 -d hexdump.bz2```
+11. Continue process until POSIX tar archive (GNU) file is found
+12. To extract file, use ```tar -xvf hexdump```
+13. Keep extracting gzip, bzip2 & tar files until ASCII text data type file located
+14. To read, use ```cat data8.bin```
+15. New Password: ```wbWdlBxEir4CaE8LaPhauuOo6pwRmrDw```
+16. Type ```exit```
+
+![Image](/12-13%201.png)
+![Image](/12-13%202.png)
+![Image](/12-13%203.png)
+![Image](/12-13%204.png)
+![Image](/12-13%205.png)
+
+---
+## Level 13 to 14
+*The password for the next level is stored in /etc/bandit_pass/bandit14 and can only be read by user bandit14. For this level, you don’t get the next password, but you get a private SSH key that can be used to log into the next level. Note: localhost is a hostname that refers to the machine you are working on.*
+
+**Notes:** Password stored is in localhost; -i - identifier that we have privatekey and not a password; whoami - to check server; /etc - to navigate into the etc folder; bandit_pass - folder with password
+
+1. Type command ```ssh bandit13@bandit.labs.overthewire.org -p 2220```
+2. Password: ```wbWdlBxEir4CaE8LaPhauuOo6pwRmrDw```
+3. List directories using ```ls```
+4. Enter localhost with sshkey.private ```ssh bandit14@localhost -p 2220 -i sshkey.private``` & authenticate connection by typing yes
+5. Check server with ```whoami```
+6. To read, use ```cat /etc/bandit_pass/bandit14```
+7. New Password: ```fGrHPx402xGC7U7rXKDaxiWFTOiF0ENq```
+8. Type ```exit```
+
+![Image](/13-14%201.png)
+![Image](/13-14%202.png)
+
+---
+## Level 14 to 15
+*The password for the next level can be retrieved by submitting the password of the current level to port 30000 on localhost.*
+
+**Notes:** port - 30000; nc - netcat is a swiss army tool to make TCP & UDP connections used to listen for ports
+
+1. Use ```nc localhost 30000```
+2. Password: ```fGrHPx402xGC7U7rXKDaxiWFTOiF0ENq```
+3. New Password: ```jN2kgmIXJ6fShzhT2avhotn4Zcka6tnt```
+4. Type ```exit```
+
+![Image](/14-15.png)
+
+---
+## Level 15 to 16
+
