@@ -213,7 +213,7 @@ All Information with reference to [Website](https://overthewire.org/wargames/ban
 
 1. Type command ```ssh bandit12@bandit.labs.overthewire.org -p 2220```
 2. Password: ```JVNBBFSmZwKKOP0XbFXOoW8chDz5yVRv```
-3. Chane directory to /tmp ```cd /tmp``` & make new directory ```mkdir new1```
+3. Change directory to /tmp ```cd /tmp``` & make new directory ```mkdir new1```
 4. Copy data.txt file to new directory using ```cp data.txt /tmp/new1```
 5. Read data.txt file and reverse hexdump using ```cat data.txt | xxd -r```
 6. Store read data in file called hexdump by redirection ```cat data.txt | xxd -r > hexdump```
