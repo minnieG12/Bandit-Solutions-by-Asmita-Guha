@@ -267,4 +267,24 @@ All Information with reference to [Website](https://overthewire.org/wargames/ban
 
 ---
 ## Level 15 to 16
+*The password for the next level can be retrieved by submitting the password of the current level to port 30001 on localhost using SSL encryption.*
+
+**Notes:** pass= - used to store password in variable pass; ssl - secure socket layer; ssl connection is to be used with openssl command; port - 30001; read R block - prompt that asks for password 
+
+1. Type command ```ssh bandit15@bandit.labs.overthewire.org -p 2220```
+2. Password: ```jN2kgmIXJ6fShzhT2avhotn4Zcka6tnt```
+3. Store password in a variable using ```pass=jN2kgmIXJ6fShzhT2avhotn4Zcka6tnt```
+4. Establish new connection using ```openssl s_client -connect localhost:30001```
+5. To read R block, just paste old password
+6. New Password: ```JQttfApK4SeyHwDlI9SXGR50qclOAil1```
+7. Type ```exit```
+
+![Image](/15-16%201.png)
+![Image](/15-16%202.png)
+
+---
+## Level 16 to 17
+*The credentials for the next level can be retrieved by submitting the password of the current level to a port on localhost in the range 31000 to 32000. First find out which of these ports have a server listening on them. Then find out which of those speak SSL and which don’t. There is only 1 server that will give the next credentials, the others will simply send back to you whatever you send to it.*
+
+
 
